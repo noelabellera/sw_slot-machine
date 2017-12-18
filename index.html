@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Slot Machine</title>
+</head>
+
+<body>
+    <div id="top">
+        <img id="gameTitle" src="https://i.imgur.com/fiwT69y.png">
+    </div>
+
+    <div id="prompt">
+        <h1></h1>
+        <h2></h2>
+    </div>
+    
+    <div class=containter1>
+        <div>
+            <table id="reel">
+                <tr>
+                    <td><img id="firstSlot" class="reel" src=https://i.imgur.com/gB2K6Zz.png></td>
+                    <td><img id="secondSlot" class="reel" src="https://i.imgur.com/8hab90D.png"></td>
+                    <td><img id="thirdSlot" class="reel" src="https://i.imgur.com/WjBoP9N.png"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div id="cashIn">
+            <h3>Buy In Here!</h3>
+            <h4>Click on the amount</h4>
+            <button class="btn" id="fiveBill">$5</button>
+            <button class="btn" id="tenBill">$10</button>
+            <button class="btn" id="twentyBill">$20</button>
+        </div>
+        <div id="winCond"><h2>Winning Conditions</h2></div>
+    </div> <!-- end of container1 -->
+    
+    <div class="userConsole">
+            <table>
+                <tr id="display">
+                    <td id="win">win</td>
+                    <td id="bet">bet</td>
+                    <td id="amount">$&nbsp;</td>
+                </tr>
+            </table>
+        </div>
+    
+    <div class="btn">
+        <button id="cashOut">CASH OUT</button>
+        <button id="clear">CLEAR BET</button>
+        <button id="betOne">BET ONE</button>
+        <button id="max">MAX BET</button>
+        <button id="spin">SPIN</button>
+    </div>      
+
+    <script src="js/main.js"></script>    
+</body>
+</html>
