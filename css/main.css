@@ -11,38 +11,6 @@ h2 {
     color: white;
 }
 
-#prompt {
-    margin: auto;
-    text-align: center;
-    color: white;
-}
-img {
-    border-radius: 30%;
-    height: 250px;
-    width: 250px;
-    margin: 7px;
-}
-
-tr {
-    width: 100px;
-}
-.cashBuyIn {
-    border-radius: 0;
-    height: 100px;
-    width: 275px;
-    margin: 20px;
-    cursor: pointer;
-}
-
-.cashBuyIn:hover {
-    transform: scale(1.1);
-    transition: .25s; 
-}
-
-#display {
-    border: 5px solid black;
-}
-
 table {
     margin: 15px auto;
 }
@@ -56,6 +24,102 @@ button {
 }
 
 button:hover {
+    transform: scale(1.25);
+    transition: .25s; 
+}
+
+img {
+    border-radius: 30%;
+    height: 250px;
+    width: 250px;
+    margin: 7px;
+}
+
+tr {
+    width: 100px;
+}
+
+
+#cashIn {
+    color: white;
+    height: 100%;
+    width: 25px;
+}
+
+#display {
+    border: 5px solid black;
+}
+
+#display td {
+    border: 2px solid tomato;
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 65px;
+    display: 0 auto;
+    border-radius: 10%;
+    text-align: center;
+    font-size: 150%;
+}
+
+#gameTitle {
+    width: 400px;
+    height: 250px;
+}
+
+#prompt {
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+#prompt {
+    color: white;
+}
+
+#slots td {
+    background-color: white;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+    border-radius: 15%;
+}
+
+#spin {
+    width: 100px;
+    height: 100px;
+    color: white;
+    background-color: tomato;
+    border: 3px solid white;
+}
+
+#top {
+    text-align: center;
+}
+
+#winCond {
+    margin: 0 25px 0 0;
+}
+
+.buyInMsg {
+    color: white;
+    margin: 0 0 0 25px;
+}
+.btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.cashBuyIn {
+    border-radius: 0;
+    height: 125px;
+    width: 300px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.cashBuyIn:hover {
     transform: scale(1.1);
     transition: .25s; 
 }
@@ -68,64 +132,27 @@ button:hover {
     margin: 15 px;
 }
 
-.buyInMsg {
-    color: white;
-    margin: 0 0 0 25px;
+#ftw {
+    height: 35px;
+    width: 35px;
+    background-color: gray;
 }
 
 
-#top {
-    text-align: center;
-}
 
-#cashIn {
-    color: white;
-    height: 100%;
-    width: 25px;
-}
 
-#gameTitle {
-    width: 400px;
-    height: 250px;
-}
 
-#spin {
-    width: 100px;
-    height: 100px;
-    color: white;
-    background-color: tomato;
-    border: 3px solid white;
-}
 
-#slots td {
-    background-color: white;
-    height: 250px;
-    width: 250px;
-    border: 2px solid black;
-    border-radius: 15%;
-}
 
-#display td {
-    border: 2px solid tomato;
-    background-color: black;
-    color: white;
-    width: 150px;
-    height: 50px;
-    display: 0 auto;
-    border-radius: 10%;
-    text-align: center;
-}
 
-#prompt {
-    color: white;
-}
 
-#winCond {
-    margin: 0 25px 0 0;
-}
 
-.btn {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
+
+
+
+
+
+
+
+
+

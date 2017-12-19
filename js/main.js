@@ -5,8 +5,10 @@ var betFive = 5;
 var betTen = 10;
 var betTwenty = 20;
 
+var odds = [0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4,
+            5, 5, 5, 5, 5, 5, 5, 5]
 var pics = ['https://i.imgur.com/2hkRWJz.jpg', 'https://i.imgur.com/gB2K6Zz.png', 
-'https://i.imgur.com/PMI0f0l.png','https://i.imgur.com/WjBoP9N.png',
+'https://i.imgur.com/kHZg1os.png','https://i.imgur.com/WjBoP9N.png',
 'https://i.imgur.com/u1Qvt20.png','https://i.imgur.com/8hab90D.png'
 ];
 
@@ -44,6 +46,7 @@ document.getElementById("cashOut")
 document.getElementById("clear")
 .addEventListener('click', function() {
     betTotal = 0;
+    console.log(betTotal);
     render();
 });
 
@@ -70,8 +73,10 @@ function spinReel(){
             var randomNum = Math.floor(Math.random() * pics.length);
             reelResults[i] = randomNum;
         }
-        userBalance = userBalance - betTotal;
-        render();
+    
+    userBalance = userBalance - betTotal;
+    console.log(reelResults)
+    render();
     }
 }
 
@@ -91,7 +96,7 @@ function bettingOne() {
         betTotal = maxBetting;
     } else {
         betTotal += minBet;
-        render();
+        renderMsg();
     }
 }
 
@@ -123,6 +128,7 @@ function renderMsg() {
 
 function cashingOut() {
     msgEl.innerHTML = "You're cashing out: $ " + userBalance.toFixed(2);
+    balanceConsole.innerHTML = "$ 0.00";
     init();
 }
 
