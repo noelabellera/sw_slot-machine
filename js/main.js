@@ -5,23 +5,22 @@ var betFive = 5;
 var betTen = 10;
 var betTwenty = 20;
 
-var odds = [0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4,
-            5, 5, 5, 5, 5, 5, 5, 5]
-var pics = ['https://i.imgur.com/2hkRWJz.jpg', 'https://i.imgur.com/gB2K6Zz.png', 
-'https://i.imgur.com/kHZg1os.png','https://i.imgur.com/WjBoP9N.png',
-'https://i.imgur.com/u1Qvt20.png','https://i.imgur.com/8hab90D.png'
-];
+var odds = [ 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 
+            3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 
+            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 
+            6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
+            
+var pics = ['https://i.imgur.com/2hkRWJz.jpg', //Vader Pic
+            'https://i.imgur.com/u1Qvt20.png', //Yoda Pic
+            'https://i.imgur.com/gB2K6Zz.png', //R2D2 Pic
+            'https://i.imgur.com/WjBoP9N.png', //BB8 Pic
+            'https://i.imgur.com/kHZg1os.png', //Chewy Pic
+            'https://i.imgur.com/8hab90D.png',//Millennium Falcon Pic
+            'https://i.imgur.com/3LvSBq8.png']; //Boba Fett Pic
 
-var winners = [
-    [0, 0, 0], [0, 0, 1], [0, 0, 2], [0, 0, 3], [0, 0, 4], [0, 0, 5], // 100
-    [1, 1, 1], [1, 1, 0], [1, 1, 2], [1, 1, 3], [1, 1, 4], [1, 1, 5], // 75
-    [2, 2, 2], [2, 2, 0], [2, 2, 1], [2, 2, 3], [2, 2, 4], [2, 2, 5], // 50
-    [3, 3, 3], [3, 3, 0], [3, 3, 2], [3, 3, 1], [3, 3, 4], [3, 3, 5], // 25
-    [4, 4, 4], [4, 4, 0], [4, 4, 2], [4, 4, 3], [4, 4, 1], [4, 4, 5], // 10
-    [5, 5, 5], [5, 5, 0], [5, 5, 2], [5, 5, 3], [5, 5, 4], [5, 5, 1], // 5
-]
+
 /*---- app state variables  -----*/
- var betTotal, winVal, userBalance, amtBuyIn;
+ var betTotal, winVal, userBalance, amtBuyIn
  var reelResults; //array for winning results. 
 
 /*----- cached element preferences  ------*/
@@ -46,7 +45,6 @@ document.getElementById("cashOut")
 document.getElementById("clear")
 .addEventListener('click', function() {
     betTotal = 0;
-    console.log(betTotal);
     render();
 });
 
@@ -54,30 +52,26 @@ document.getElementById("cashIn")
 .addEventListener('click', function(e) {
     amtBuyIn = parseInt(e.target.id.replace('bill-', ''));
     addToAmt(amtBuyIn);
-    render();
+    renderMsg();
 });
 
 /*----- function  ------*/
 function addToAmt(amt) {
     userBalance += amt;
-    balanceConsole.innerHTML = "$ " + userBalance.toFixed(2);
-    return userBalance;
-    console.log(userBalance);
+    renderMsg();
 }
 
 function spinReel(){
-    if(userBalance < betTotal || userBalance === 0 || betTotal === 0) {
-        userBalance = userBalance;
-    } else {
-        for (var i = 0; i < 3; i++) {
-            var randomNum = Math.floor(Math.random() * pics.length);
+    if(betTotal > 0 && userBalance >= betTotal) {
+        for(var i = 0; i < 3; i++) {
+            var randomNum = odds[Math.floor(Math.random()*odds.length)];
             reelResults[i] = randomNum;
         }
-    
-    userBalance = userBalance - betTotal;
-    console.log(reelResults)
-    render();
-    }
+        userBalance = userBalance - betTotal;
+        checkForWinner();
+        render();
+        
+        }
 }
 
 function maxBet() {
@@ -98,21 +92,18 @@ function bettingOne() {
         betTotal += minBet;
         renderMsg();
     }
+    
 }
 
 function render() {
-    
-    if (userBalance === 0 || userBalance < betTotal || betTotal === 0) {
-        msgEl.innerHTML = "Place Your Bets!";
-    } else {
-        reelResults.forEach(function(res, i) {
-        document.querySelectorAll(".reel")[i].src = pics[res];
-        });
-    }
+    reelResults.forEach(function(picture_url, i) {
+            document.querySelectorAll(".reel")[i].src = pics[picture_url];
+        });  
     renderMsg();
 }
 
 function renderMsg() {
+    
     betConsole.innerHTML = "$ " + betTotal.toFixed(2);
     balanceConsole.innerHTML = "$ " + userBalance.toFixed(2);
     winConsole.innerHTML = "$ " + winVal.toFixed(2); 
@@ -130,6 +121,9 @@ function cashingOut() {
     msgEl.innerHTML = "You're cashing out: $ " + userBalance.toFixed(2);
     balanceConsole.innerHTML = "$ 0.00";
     init();
+    
+    //render();
+    
 }
 
 function init () {
@@ -140,5 +134,39 @@ function init () {
     amtBuyIn = 0;
 }
 
+function payOut(multiplier, string) {
+    console.log(string)
+    winVal = betTotal * multiplier;
+    userBalance = userBalance + winVal;
+
+}
+
+function checkForWinner(){
+    if((reelResults[0] === 0) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(100, 'You Win Vader')
+    } else if((reelResults[0] === 1) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(75, 'You Win Yoda')
+    } else if((reelResults[0] === 2) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(50, 'You Win R2')
+    } else if((reelResults[0] === 3) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(25, 'You Win BB8')
+    } else if((reelResults[0] === 4) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(15, 'You Win Chewy')
+    } else if((reelResults[0] === 5) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(10, 'You Win The Falcon')
+    } else if((reelResults[0] === 6) && 
+        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
+        payOut(5, 'Boba Fett')
+    } else if (reelResults[0] === reelResults[1]) {
+        payOut(2, "May the force be with you")
+    }
+    render();
+}
 init();
 render();

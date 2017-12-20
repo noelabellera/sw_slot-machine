@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
     <title>Slot Machine</title>
 </head>
 
@@ -16,87 +17,49 @@
 
     <div id="prompt">
         <h1></h1>
-        <h2 id="secondMsg"></h2>
+        <h2>Hello</h2>
     </div>
-    <div class="buyInMsg">
-        <h3>Buy In Here!</h3>
-        <h4>Click on the amount</h4>
-    </div>
+
     <div class=container1>
         <div id="cashIn">
+            <h3>Buy In Here! Click On The Amount!</h3>
             <img class="cashBuyIn" id="bill-5" src="https://i.imgur.com/4obLMTn.png">
             <img class="cashBuyIn" id="bill-10" src="https://i.imgur.com/vbXk3QR.jpg">
             <img class="cashBuyIn" id="bill-20" src="https://i.imgur.com/eLlcCAS.jpg">
         </div>
         
-        <table id="slots">
-            <tr>
-                <td><img id="firstSlot" class="reel" src=https://i.imgur.com/gB2K6Zz.png></td>
-                <td><img id="secondSlot" class="reel" src="https://i.imgur.com/8hab90D.png"></td>
-                <td><img id="thirdSlot" class="reel" src="https://i.imgur.com/WjBoP9N.png"></td>
-            </tr>
-        </table>
+        <div id="centerStage">
+            <table id="slots">
+                <tr>
+                    <td><img id="firstSlot" class="reel" src=https://i.imgur.com/gB2K6Zz.png></td>
+                    <td><img id="secondSlot" class="reel" src="https://i.imgur.com/8hab90D.png"></td>
+                    <td><img id="thirdSlot" class="reel" src="https://i.imgur.com/WjBoP9N.png"></td>
+                </tr>
+            </table>
+            
+            <div class="userConsole">
+                <table id="display">
+                    <tr>
+                        <td id="showWin">$ 0.00</td>
+                        <td id="showBet">$ 0.00</td>
+                        <td id="showBalance">$ 0.00</td>
+                    </tr>
+                    <tr>
+                        <td>Win</td>
+                        <td>Bet </td>
+                        <td>Balance</td>
+                    </tr>
+                </table>
+            </div>
+        </div> 
+        
+        <div id="winCond"><h2>Winning Conditions</h2></div>
 
         
-        <div id="winCond"><h2>Winning Conditions</h2>
 
-            <table id="winTable">
-                <tr>
-                    <td><img class="winCon" src='https://i.imgur.com/2hkRWJz.jpg'> X 3 = 100x Payout</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-                
-            </table>
-        </div>
     </div> <!-- end of container1 -->
     
-    <div class="userConsole">
-            <table id="display">
-                <tr>
-                    <td id="showWin">$ 0.00</td>
-                    <td id="showBet">$ 0.00</td>
-                    <td id="showBalance">$ 0.00</td>
-                </tr>
-                <tr>
-                    <td>Win</td>
-                    <td>Bet </td>
-                    <td>Balance</td>
-                </tr>
-            </table>
-        </div>
+    
     
     <div class="btn">
         <button id="cashOut">CASH OUT</button>
