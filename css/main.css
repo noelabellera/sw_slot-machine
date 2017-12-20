@@ -3,12 +3,15 @@
 }
 body {
     margin: 0 auto;
-    background-image: url("https://i.imgur.com/Hp4jyZ6.jpg");
+    background-image: url('https://i.imgur.com/DWDpLtp.jpg');
     background-size: cover;
 }
-
+h1 {
+    font-size: 40px;
+}
 h2 {
     color: white;
+    font-size: 28px;
 }
 
 table {
@@ -85,7 +88,7 @@ tr {
     background-color: white;
     height: 250px;
     width: 250px;
-    border: 2px solid black;
+    border: 5px solid dodgerblue;
     border-radius: 15%;
 }
 
@@ -136,6 +139,11 @@ tr {
     justify-content: space-around;
     align-items: flex-start;
     margin: 15 px;
+}
+
+#moneyCol {
+    display: flex;
+    flex-direction: column;
 }
 
 .userConsole {
