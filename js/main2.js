@@ -5,30 +5,38 @@ var betFive = 5;
 var betTen = 10;
 var betTwenty = 20;
 
-var odds = [ 0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 
-            3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 
-            5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 
-            6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
+var odds = [ 
+    0, 0, 1, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 
+    3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 
+    5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 
+    6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6];
             
-var pics = ['https://i.imgur.com/2hkRWJz.jpg', //Vader Pic
-            'https://i.imgur.com/u1Qvt20.png', //Yoda Pic
-            'https://i.imgur.com/gB2K6Zz.png', //R2D2 Pic
-            'https://i.imgur.com/WjBoP9N.png', //BB8 Pic
-            'https://i.imgur.com/kHZg1os.png', //Chewy Pic
-            'https://i.imgur.com/8hab90D.png',//Millennium Falcon Pic
-            'https://i.imgur.com/3LvSBq8.png']; //Boba Fett Pic
+var symbols = [
+    {img: 'https://i.imgur.com/2hkRWJz.jpg', payout: 1000, payout2: 30}, //Vader Pic
+    {img: 'https://i.imgur.com/u1Qvt20.png', payout: 100, payout2: 15}, //Yoda Pic
+    {img: 'https://i.imgur.com/gB2K6Zz.png', payout: 75, payout2: 10}, //R2D2 Pic
+    {img: 'https://i.imgur.com/WjBoP9N.png', payout: 50, payout2: 8}, //BB8 Pic
+    {img: 'https://i.imgur.com/kHZg1os.png', payout: 25, payout2: 5}, //Chewy Pic
+    {img: 'https://i.imgur.com/8hab90D.png', payout: 10, payout2: 2}, //Millennium Falcon Pic
+    {img: 'https://i.imgur.com/3LvSBq8.png', payout: 5, payout2: 1} //Boba Fett Pic
+]; 
 
 
 /*---- app state variables  -----*/
- var betTotal, winVal, userBalance, amtBuyIn
+ var betTotal, winVal, userBalance, amtBuyIn, message;
  var reelResults; //array for winning results. 
 
 /*----- cached element preferences  ------*/
+var reelEls = document.querySelectorAll(".reel");
 var msgEl = document.querySelector('h1');
 var subMsgEl = document.querySelector('h2');
 var betConsole = document.getElementById('showBet');
 var balanceConsole = document.getElementById('showBalance');
 var winConsole = document.getElementById('showWin');
+var boxOne = document.getElementById("firstSlot");
+var boxTwo = document.getElementById("secondSlot");
+var boxThree = document.getElementById("thirdSlot");
+var boxes = [boxOne, boxTwo, boxThree];
 
 /*----- event listener  ------*/
 document.getElementById("spin")
@@ -92,18 +100,22 @@ function bettingOne() {
         betTotal += minBet;
         renderMsg();
     }
-    
 }
 
 function render() {
-    reelResults.forEach(function(picture_url, i) {
-            document.querySelectorAll(".reel")[i].src = pics[picture_url];
-        });  
+    reelResults.forEach(function(symIdx, i) {
+        reelEls[i].src = symbols[symIdx].img;
+        boxes[i].classList.add('spin');
+        setTimeout(function() {
+            boxes[i].classList.remove('spin');
+        }, 1000);
+    });  
     renderMsg();
 }
 
+
+
 function renderMsg() {
-    
     betConsole.innerHTML = "$ " + betTotal.toFixed(2);
     balanceConsole.innerHTML = "$ " + userBalance.toFixed(2);
     winConsole.innerHTML = "$ " + winVal.toFixed(2); 
@@ -112,8 +124,6 @@ function renderMsg() {
         msgEl.innerHTML = "Place Your Bets & May The Force Be With You!";
     } else if(winVal > 0){
         msgEl.innerHTML = 'You Win $ ' + winVal.toFixed(2);
-    } else if(userBalance === 0) {
-        subMsgEl.innerHTML = "&nbsp";
     }
     else {
         msgEl.innerHTML = "Current Bet: $ " + betTotal.toFixed(2);
@@ -128,6 +138,7 @@ function cashingOut() {
     balanceConsole.innerHTML = "$ 0.00";
     winConsole.innerHTML = "$ " + winVal.toFixed(2);
     betConsole.innerHTML = "$ " + betTotal.toFixed(2);
+    msgEl.innerHTML = "You've cashed out $ " + userBalance.toFixed(2);
     init();
 }
 
@@ -137,42 +148,28 @@ function init () {
     winVal = 0;
     reelResults = [];
     amtBuyIn = 0;
+    message = "Place your Bets!";
 }
 
-function payOut(multiplier) {
-    winVal = betTotal * multiplier;
+function multiplier(multiple) {
+    winVal = betTotal * multiple;
     userBalance = userBalance + winVal;
-
 }
 
 function checkForWinner(){
-    if((reelResults[0] === 0) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(100)
-    } else if((reelResults[0] === 1) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(75)
-    } else if((reelResults[0] === 2) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(50)
-    } else if((reelResults[0] === 3) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(25)
-    } else if((reelResults[0] === 4) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(15)
-    } else if((reelResults[0] === 5) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(10)
-    } else if((reelResults[0] === 6) && 
-        (reelResults[0] === reelResults[1]) && (reelResults[0] === reelResults[2])) {
-        payOut(5)
+    if (reelResults[0] === reelResults[1] && reelResults[0] === reelResults[2]) {
+        // handle three the same
+        multiplier(symbols[reelResults[0]].payout);
     } else if (reelResults[0] === reelResults[1]) {
-        payOut(2)
-    } else {
+        // handle two the same
+        multiplier(symbols[reelResults[0]].payout2);
+    }else {
         winVal = 0;
     }
     render();
 }
 init();
 render();
+
+
+

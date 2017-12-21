@@ -7,21 +7,21 @@
     <link rel="stylesheet" href="css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Bungee" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Orbitron" rel="stylesheet">
-    <title>Slot Machine</title>
+    <title>Star Wars Slot Machine</title>
 </head>
 
 <body>
-        <audio preload="auto">
-                <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg" type="audio/ogg" />
-                <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3" type="audio/mpeg" />
-              </audio>
+    <audio autoplay loop>
+        <!-- <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg" type="audio/ogg" /> -->
+        <source src="http://mattersofgrey.com/audio/cantina.mp3" type="audio/mp3" />
+    </audio>
     <div id="top">
-        <img id="gameTitle" src="https://i.imgur.com/fiwT69y.png">
+        <img id="gameTitle" src="https://i.imgur.com/tASIu7F.jpg">
     </div>
 
     <div id="prompt">
         <h1></h1>
-        <h2>Hello</h2>
+        <h2></h2>
     </div>
 
     <div class=container1>
@@ -37,20 +37,23 @@
         <div id="centerStage">
             <table id="slots">
                 <tr>
-                    <td><img id="firstSlot" class="reel" src=https://i.imgur.com/gB2K6Zz.png></td>
-                    <td><img id="secondSlot" class="reel" src="https://i.imgur.com/8hab90D.png"></td>
-                    <td><img id="thirdSlot" class="reel" src="https://i.imgur.com/WjBoP9N.png"></td>
+                    <td id="firstSlot"><img class="reel" src="https://i.imgur.com/2hkRWJz.jpg"></td>
+                    <td id="secondSlot" ><img class="reel" src="https://i.imgur.com/2hkRWJz.jpg"></td>
+                    <td id="thirdSlot"><img class="reel" src="https://i.imgur.com/2hkRWJz.jpg"></td>
                 </tr>
             </table>
             
             <div class="userConsole">
                 <table id="display">
                     <tr>
+                        <td rowspan="2">Good </br> Luck</td>
                         <td id="showWin">$ 0.00</td>
+                        <td rowspan="2"><img class="twentyFiveCents" src="https://i.imgur.com/sEwEkSi.png"></td>
                         <td id="showBet">$ 0.00</td>
                         <td id="showBalance">$ 0.00</td>
                     </tr>
                     <tr>
+                        
                         <td>Win</td>
                         <td>Bet </td>
                         <td>Balance</td>
@@ -64,7 +67,7 @@
                 <button id="max">MAX BET</button>
                 <button id="spin">SPIN</button>
             </div>   
-        </div> 
+        </div> <!--centerstage div -->
         
         <div id="winCond">
             <table id="payoutDisplay">
@@ -77,19 +80,19 @@
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/CgVOGfs.jpg'> x1000</td>
-                    <td><img class="symbolVal2" src='https://i.imgur.com/WDUBKk3.jpg'></br>x20</td>
+                    <td><img class="symbolVal2" src='https://i.imgur.com/WDUBKk3.jpg'></br>x30</td>
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/NbROEnD.jpg'>x100</td>
-                    <td><img class="symbolVal2" src='https://i.imgur.com/mXloba1.jpg'></br>x10</td>
+                    <td><img class="symbolVal2" src='https://i.imgur.com/mXloba1.jpg'></br>x15</td>
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/ubgt0uY.jpg'> x75</td>
-                    <td><img class="symbolVal2" src='https://i.imgur.com/DBiXHeT.jpg'></br>x5</td>
+                    <td><img class="symbolVal2" src='https://i.imgur.com/DBiXHeT.jpg'></br>x10</td>
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/YAjnnZA.jpg'> x50</td>
-                    <td><img class="symbolVal2" src='https://i.imgur.com/jhtWFGh.jpg'></br>x5</td>
+                    <td><img class="symbolVal2" src='https://i.imgur.com/jhtWFGh.jpg'></br>x8</td>
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/uueJkLN.jpg'> x25</td>
@@ -101,22 +104,11 @@
                 </tr>
                 <tr>
                     <td><img class="symbolVal" src='https://i.imgur.com/ieIAyEC.jpg'> x5</td>
-                    <td><img class="symbolVal2" src='https://i.imgur.com/WzIIMZf.jpg'></br>x2</td>
+                    <td><img class="symbolVal2" src='https://i.imgur.com/WzIIMZf.jpg'></br>x1</td>
                 </tr>
-                    
             </table>
-        
         </div>
-
-
-        
-
     </div> <!-- end of container1 -->
-    
-    
-    
-       
-
     <script src="js/main.js"></script>    
 </body>
 </html>

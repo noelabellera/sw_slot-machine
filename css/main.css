@@ -6,16 +6,20 @@ body {
     background-image: url('https://i.imgur.com/DWDpLtp.jpg');
     background-size: cover;
 }
+
 h1 {
-    font-size: 40px;
+    font-size: 35px;
 }
+
 h2 {
     color: white;
     font-size: 28px;
+    -webkit-text-stroke: 0.5px black;
 }
 
 table {
     margin: 15px auto;
+
 }
 
 button {
@@ -39,11 +43,6 @@ img {
     margin: 5px;
 }
 
-tr {
-    width: 100px;
-}
-
-
 #cashIn {
     color: white;
     height: 100%;
@@ -51,16 +50,12 @@ tr {
     flex-direction: column;
 }
 
-#display {
-    border: 5px solid black;
-}
-
 #display td {
     border: 2px solid tomato;
     background-color: black;
     color: white;
-    width: 200px;
-    height: 65px;
+    width: 150px;
+    height: 45px;
     display: 0 auto;
     border-radius: 10%;
     text-align: center;
@@ -69,10 +64,32 @@ tr {
     font-weight: bold;
 }
 
-
 #gameTitle {
-    width: 400px;
-    height: 250px;
+    width: 550px;
+    height: 100px;
+    border-radius: 0%;
+}
+
+#payoutDisplay {
+    color: white;
+    border: 2px solid white;
+}
+
+#payoutDisplay td {
+    border: 2px solid black;
+    width: 155px;
+    height: 35px;
+    text-align: center;
+    color: tomato;
+    background-color: white;
+    font-size: 20px;
+    opacity: .80;
+}
+
+#payoutTitle {
+    height: 25px;
+    font-size: 40px;
+    color: tomato;
 }
 
 #prompt {
@@ -81,21 +98,17 @@ tr {
     color: white;
 }
 
-#prompt {
-    color: white;
-}
-
 #slots td {
     background-color: white;
-    height: 250px;
-    width: 250px;
+    height: 200px;
+    width: 200px;
     border: 5px solid dodgerblue;
     border-radius: 15%;
 }
 
 #spin {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     color: white;
     background-color: tomato;
     border: 3px solid white;
@@ -103,13 +116,27 @@ tr {
 }
 
 #top {
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px 0 0 0;
+}
+
+#winCond {
+    height: 600px;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
 }
 
 .buyInMsg {
     color: white;
     margin: 0 0 0 25px;
 }
+
 .btn {
     display: flex;
     flex-direction: row;
@@ -138,36 +165,9 @@ tr {
     margin: 5px;
 }
 
-#moneyCol {
-    display: flex;
-    flex-direction: column;
-}
-
-.userConsole {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    
-}
-
-.payoutMsg {
-    color: white;
-}
-
-#payoutDisplay {
-    color: white;
-    border: 2px solid white;
-}
-
-#payoutDisplay td {
-    border: 2px solid black;
-    width: 215px;
-    height: 65px;
-    text-align: center;
-    color: tomato;
-    background-color: white;
-    font-size: 25px;
-    opacity: .85;
+.spin {
+    transform: rotate(360deg);
+    transition: .65s;
 }
 
 .symbolVal {
@@ -182,11 +182,30 @@ tr {
     width: 125px;
 }
 
-#payoutTitle {
-    height: 25px;
-    font-size: 40px;
-    color: tomato;
+.twentyFiveCents {
+    height: 100px;
+    width: 100px;
 }
+
+.userConsole {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
