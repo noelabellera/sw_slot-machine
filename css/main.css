@@ -28,7 +28,7 @@ button {
 }
 
 button:hover {
-    transform: scale(1.25);
+    transform: scale(1.30);
     transition: .25s; 
 }
 
@@ -36,7 +36,7 @@ img {
     border-radius: 30%;
     height: 250px;
     width: 250px;
-    margin: 7px;
+    margin: 5px;
 }
 
 tr {
@@ -68,6 +68,7 @@ tr {
     font-family: 'Orbitron', sans-serif;
     font-weight: bold;
 }
+
 
 #gameTitle {
     width: 400px;
@@ -105,10 +106,6 @@ tr {
     text-align: center;
 }
 
-#winCond {
-    margin: 0 25px 0 0;
-}
-
 .buyInMsg {
     color: white;
     margin: 0 0 0 25px;
@@ -122,9 +119,9 @@ tr {
 
 .cashBuyIn {
     border-radius: 0;
-    height: 125px;
-    width: 300px;
-    margin: 20px;
+    height: 135px;
+    width: 320px;
+    margin: 10px 20px;
     cursor: pointer;
 }
 
@@ -138,7 +135,7 @@ tr {
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    margin: 15 px;
+    margin: 5px;
 }
 
 #moneyCol {
@@ -153,11 +150,44 @@ tr {
     
 }
 
-#ftw {
-    height: 35px;
-    width: 35px;
-    background-color: gray;
+.payoutMsg {
+    color: white;
 }
+
+#payoutDisplay {
+    color: white;
+    border: 2px solid white;
+}
+
+#payoutDisplay td {
+    border: 2px solid black;
+    width: 215px;
+    height: 65px;
+    text-align: center;
+    color: tomato;
+    background-color: white;
+    font-size: 25px;
+    opacity: .85;
+}
+
+.symbolVal {
+    border-radius: 0;
+    height: 65px;
+    width: 175px;
+}
+
+.symbolVal2 {
+    border-radius: 0;
+    height: 65px;
+    width: 125px;
+}
+
+#payoutTitle {
+    height: 25px;
+    font-size: 40px;
+    color: tomato;
+}
+
 
 
 
