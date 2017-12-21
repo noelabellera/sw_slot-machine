@@ -23,7 +23,7 @@ var symbols = [
 
 
 /*---- app state variables  -----*/
- var betTotal, winVal, userBalance, amtBuyIn, message;
+ var betTotal, winVal, userBalance, amtBuyIn;
  var reelResults; //array for winning results. 
 
 /*----- cached element preferences  ------*/
@@ -37,8 +37,9 @@ var boxOne = document.getElementById("firstSlot");
 var boxTwo = document.getElementById("secondSlot");
 var boxThree = document.getElementById("thirdSlot");
 var boxes = [boxOne, boxTwo, boxThree];
+var winTwo = [boxOne, boxTwo];
 
-/*----- event listener  ------*/
+/*----- event listeners ------*/
 document.getElementById("spin")
 .addEventListener('click', spinReel);
 
@@ -64,7 +65,7 @@ document.getElementById("cashIn")
     renderMsg();
 });
 
-/*----- function  ------*/
+/*----- functions  ------*/
 function addToAmt(amt) {
     userBalance += amt;
     renderMsg();
@@ -105,15 +106,25 @@ function bettingOne() {
 function render() {
     reelResults.forEach(function(symIdx, i) {
         reelEls[i].src = symbols[symIdx].img;
-        boxes[i].classList.add('spin');
+        boxes[i].classList.add('spinner');
         setTimeout(function() {
-            boxes[i].classList.remove('spin');
-        }, 1000);
+            boxes[i].classList.remove('spinner');
+        
+        if(reelResults[0] === reelResults[1] && reelResults[0] === reelResults[2]) {
+            boxes[i].classList.add('magnify');
+            setTimeout(function() {
+                boxes[i].classList.remove('magnify');
+            },850);
+        }else if(reelResults[0] === reelResults[1]) {
+            winTwo[i].classList.add('magnify');
+            setTimeout(function() {
+                winTwo[i].classList.remove('magnify');
+            }, 850);
+        }
+        }, 500);//set time
     });  
     renderMsg();
 }
-
-
 
 function renderMsg() {
     betConsole.innerHTML = "$ " + betTotal.toFixed(2);
@@ -148,7 +159,6 @@ function init () {
     winVal = 0;
     reelResults = [];
     amtBuyIn = 0;
-    message = "Place your Bets!";
 }
 
 function multiplier(multiple) {
@@ -158,10 +168,8 @@ function multiplier(multiple) {
 
 function checkForWinner(){
     if (reelResults[0] === reelResults[1] && reelResults[0] === reelResults[2]) {
-        // handle three the same
         multiplier(symbols[reelResults[0]].payout);
     } else if (reelResults[0] === reelResults[1]) {
-        // handle two the same
         multiplier(symbols[reelResults[0]].payout2);
     }else {
         winVal = 0;
@@ -170,6 +178,3 @@ function checkForWinner(){
 }
 init();
 render();
-
-
-

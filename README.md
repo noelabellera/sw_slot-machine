@@ -7,9 +7,15 @@ According to Britannica.com, Some of the first slot machines in the modern sense
 
 Slot machines are now a very popular gambling machine inside many casinos.
 
+# Getting Started
+
+## Click on the link below to try out the game
+
+[Click Here for Star Wars Slot Machine](https://noelabellera.github.io/sw_slot-machine/)
+
 ## Here's a peek at the Star Wars Themed Slot Machine
 
-![Star Wars Slot Machine Screen Shot](https://i.imgur.com/q14BM3v.png)
+![Star Wars Slot Machine Screen Shot](https://i.imgur.com/Lb3fv0R.jpg)
 ## How the game works
 
 1. User buys in "money" into the machine with choices of $5, $10 & $20.
@@ -23,19 +29,19 @@ Slot machines are now a very popular gambling machine inside many casinos.
 
 
 
+
 ## Technologies Used To Create This Star Wars Slot Machine
 * HTML
 * CSS
 * JavaScript
 
-## Click on the link below to try out the game
 
-[Click Here for Star Wars Slot Machine](https://noelabellera.github.io/sw_slot-machine/)
 
 ## Next Steps
 Improvements to make with the game:
 * Update animations if player wins (unique sounds, visuals)
 * Add a side handle to pull as an option for spinning the reels
 * Impliment a 3x3 grid and make mulitple winning conditions. 
-* Animate reel spin when user plays the game
+* Intro Screeen like the Star Wars movie intro "A long time ago in a galaxy far far away..."
+* DRY up JavaScript code more.
 

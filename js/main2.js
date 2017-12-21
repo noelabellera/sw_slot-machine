@@ -23,7 +23,7 @@ var symbols = [
 
 
 /*---- app state variables  -----*/
- var betTotal, winVal, userBalance, amtBuyIn, message;
+ var betTotal, winVal, userBalance, amtBuyIn;
  var reelResults; //array for winning results. 
 
 /*----- cached element preferences  ------*/
@@ -38,7 +38,7 @@ var boxTwo = document.getElementById("secondSlot");
 var boxThree = document.getElementById("thirdSlot");
 var boxes = [boxOne, boxTwo, boxThree];
 
-/*----- event listener  ------*/
+/*----- event listeners ------*/
 document.getElementById("spin")
 .addEventListener('click', spinReel);
 
@@ -54,7 +54,7 @@ document.getElementById("cashOut")
 document.getElementById("clear")
 .addEventListener('click', function() {
     betTotal = 0;
-    render();
+    renderMsg();
 });
 
 document.getElementById("cashIn")
@@ -64,7 +64,7 @@ document.getElementById("cashIn")
     renderMsg();
 });
 
-/*----- function  ------*/
+/*----- functions  ------*/
 function addToAmt(amt) {
     userBalance += amt;
     renderMsg();
@@ -87,7 +87,7 @@ function maxBet() {
        betTotal = 0;
    } else {
        betTotal = maxBetting;
-       render();
+       renderMsg();
    }
 }
 
@@ -105,15 +105,13 @@ function bettingOne() {
 function render() {
     reelResults.forEach(function(symIdx, i) {
         reelEls[i].src = symbols[symIdx].img;
-        boxes[i].classList.add('spin');
+        boxes[i].classList.add('spinner');
         setTimeout(function() {
-            boxes[i].classList.remove('spin');
+            boxes[i].classList.remove('spinner');
         }, 1000);
     });  
     renderMsg();
 }
-
-
 
 function renderMsg() {
     betConsole.innerHTML = "$ " + betTotal.toFixed(2);
@@ -148,7 +146,6 @@ function init () {
     winVal = 0;
     reelResults = [];
     amtBuyIn = 0;
-    message = "Place your Bets!";
 }
 
 function multiplier(multiple) {
