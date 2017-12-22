@@ -105,7 +105,7 @@ function bettingOne() {
 
 function render() {
     reelResults.forEach(function(symIdx, i) {
-        reelEls[i].src = symbols[symIdx].img;
+        reelEls[i].src = symbols[symIdx].img; //sets source image from index numbrer taken from reelResults
         boxes[i].classList.add('spinner');
         setTimeout(function() {
             boxes[i].classList.remove('spinner');
@@ -114,14 +114,14 @@ function render() {
             boxes[i].classList.add('magnify');
             setTimeout(function() {
                 boxes[i].classList.remove('magnify');
-            },850);
+            }, 600);
         }else if(reelResults[0] === reelResults[1]) {
             winTwo[i].classList.add('magnify');
             setTimeout(function() {
                 winTwo[i].classList.remove('magnify');
-            }, 850);
+            }, 600);
         }
-        }, 500);//set time
+        }, 560);//set time
     });  
     renderMsg();
 }

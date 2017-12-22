@@ -28,13 +28,10 @@ Slot machines are now a very popular gambling machine inside many casinos.
 1. Once the user is finished playing, they may click on the 'Cash Out' button to see how much their balance is. This will also reset the game for the next User to play. 
 
 
-
-
 ## Technologies Used To Create This Star Wars Slot Machine
 * HTML
 * CSS
 * JavaScript
-
 
 
 ## Next Steps
